@@ -535,11 +535,11 @@ local function newBtn(title, callback)
 end;
 
 local loadr = function(i)
-	loadstring(i)();
+	loadstring(game:HttpGet(i))();
 end
 
 executeBtn.MouseButton1Click:Connect(function()
-	loadr(Source.Text);
+	loadstring(Source.Text)();
 end)
 
 clearBtn.MouseButton1Click:Connect(function()
@@ -551,7 +551,51 @@ exit.MouseButton1Click:Connect(function()
 end)
 
 -- Script Hub
-
 newBtn("Infinite Yield", function()
-	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))();
+	loadr("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source");
 end)
+
+newBtn("Trash Admin", function()
+	loadstring(game:HttpGet(('https://raw.githubusercontent.com/Patch-Shack/Trash-Admin/master/source')))();
+end)
+
+newBtn("NDS Chinese Servers", function()
+	print("Teleport to China version place");
+	local TeleportService = game:GetService("TeleportService");
+	local Players = game:GetService("Players");
+	TeleportService:Teleport(3696971654, Players.LocalPlayer);
+end)
+
+newBtn("Become Owner UserId", function()
+	loadr("https://pastebin.com/raw/PGjvr48M");
+end)
+
+newBtn("Arsenal Insta Kill", function()
+	loadr("https://raw.githubusercontent.com/Patch-Shack/newLoad/master/arsenal%20one%20shot");
+end)
+
+newBtn("Anti Afk", function()
+	loadr("https://raw.githubusercontent.com/Patch-Shack/newLoad/master/Never%20Get%20Kicked%20for%20Being%20AFK");
+end)
+
+newBtn("Synapse Dex", function()
+	loadr("https://raw.githubusercontent.com/Patch-Shack/newLoad/master/Synapse-Dex.lua");
+end)
+
+newBtn("Sentinel Dex", function()
+	loadr("https://pastebin.com/raw/0VHUN4t1");
+end)
+
+newBtn("Dex v4", function()
+	loadr("https://pastebin.com/raw/0a0q2h8g");
+end)
+
+-- Close UI
+game:GetService("UserInputService").InputBegan:Connect(function(Key,IsChat)
+	if IsChat then return end
+	if Key.KeyCode == Enum.KeyCode.RightAlt then
+		meditor3FINAL.Enabled = (not meditor3FINAL.Enabled)
+	end
+end)
+
+--// End of Script
